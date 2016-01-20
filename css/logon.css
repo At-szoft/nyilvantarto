@@ -1,0 +1,107 @@
+body {
+	background-color:#7fbf7f;
+}
+
+#logonhead{
+	text-align: center;
+	font-size: 32px;
+	text-decoration:none;
+    text-shadow:2px 2px #8888bb;
+}
+
+.cimsor{
+	margin: 0 auto 0 auto;
+        margin-top: 20px;
+	width:1024px; 
+	height:50px;
+}
+
+#logonwindow{ 
+	margin: 0 auto 0 auto;
+	margin-top:20px;
+	padding-top:10px;
+	/*background-color:#bbbbbb;*/
+	width:600px; 
+	height:400px; 
+}
+
+#logonarea{ 
+	margin: 0 auto 0 auto;
+	background-color:#aaaaaa;
+	width:450px; 
+	height:350px; 
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid darkblue;
+	border-radius:0px;
+        font-family: Verdana;
+        font-size: 16px;
+        text-decoration:none;
+        text-shadow:2px 2px #8888bb;
+	text-align: center;
+	padding-top: 10px;
+}
+#foot{
+        margin: 0 auto 0 auto;
+	width:1024px; 
+	height:50px;
+        text-align: center;
+        margin-top: 25px;
+        font-family:Verdana;
+	font-size:16px;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow:2px 2px #8888bb;
+ }
+.textbox { 
+    background: cyan; 
+    border: 1px double #DDD; 
+    border-radius: 0px; 
+    box-shadow: 0 0 5px #333; 
+    color: #666; 
+    outline: none; 
+    height:35px; 
+    width: 175px;
+    font-size: 18px;
+    font-family:Verdana;
+    color:black;
+    padding-left:5px;
+    margin-top: 10px;
+    text-align: center;
+} 
+.gombForm {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: normal;
+    text-decoration: inherit;
+  
+    
+    border: 1px solid #3866A3;
+    padding: 5px 18px;
+    text-shadow: 1px 1px 0px #5E5E5E;
+    -webkit-box-shadow: inset 1px 1px 0px 0px #BEE2F9;
+    -moz-box-shadow: inset 1px 1px 0px 0px #BEE2F9;
+    box-shadow: inset 1px 1px 0px 0px #BEE2F9;
+    cursor: pointer;
+    color: #FFFFFF;
+    display: inline-block;
+    background: -webkit-linear-gradient(90deg, #468ccf 5%, #63b8ee 100%);
+    background: -moz-linear-gradient(90deg, #468ccf 5%, #63b8ee 100%);
+    background: -ms-linear-gradient(90deg, #468ccf 5%, #63b8ee 100%);
+    background: linear-gradient(180deg, #63b8ee 5%, #468ccf 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#63b8ee",endColorstr="#468ccf");
+}
+
+.gombForm:hover {
+    background: -webkit-linear-gradient(90deg, #63b8ee 5%, #468ccf 100%);
+    background: -moz-linear-gradient(90deg, #63b8ee 5%, #468ccf 100%);
+    background: -ms-linear-gradient(90deg, #63b8ee 5%, #468ccf 100%);
+    background: linear-gradient(180deg, #468ccf 5%, #63b8ee 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#468ccf",endColorstr="#63b8ee");
+}
+
+.gombForm:active {
+    position:relative;
+    top: 1px;
+}

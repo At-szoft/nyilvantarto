@@ -1,0 +1,727 @@
+
+#cimsor{
+	margin: 0 auto 0 auto;
+	width:1024px; 
+	height:30px;
+        text-align: center;
+        margin-top: 5px;
+	color:#222255;
+	font-family:Verdana;
+	font-size:16px;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow:2px 2px #8888bb;
+        padding-top: 5px;
+ }
+ #foot{
+        margin: 0 auto 0 auto;
+	width:1024px; 
+	height:50px;
+        text-align: center;
+        margin-top: 25px;
+        font-family:Verdana;
+	font-size:16px;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow:2px 2px #8888bb;
+ }
+#formNewUser{
+        margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: auto;
+	background-color:#bbbbbb;
+	width:550px; 
+	height:250px;
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid darkblue;
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:14px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;
+ }
+#formNewPlace{
+    margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: auto;
+	background-color:#bbbbbb;
+	width:550px; 
+	height:200px;
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid darkblue;
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:14px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;
+ }
+ #formUserList{
+        margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: 20px;
+        padding-right: 20px;
+	background-color:#bbbbbb;
+	width:900px; 
+	height:350px;
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid red;
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:18px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;
+        overflow: scroll;
+ }
+ 
+ #formItemList{
+        margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: 20px;
+        padding-right: 20px;
+	background-color:#bbbbbb;
+	width:900px; 
+	height:300px;
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid red;
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:18px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;
+        overflow: scroll;
+ }
+ 
+  #formDelUser{
+        margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: 20px;
+        padding-right: 20px;
+	background-color:#bbbbbb;
+	width:1200px; 
+	height:200px;
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid red;
+	border-radius:6px;
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:18px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;
+
+ }
+ #formModUser{
+        margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: auto;
+	background-color:#bbbbbb;
+	width:550px; 
+	height:300px;
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid darkblue;
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:14px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;
+ }
+#formNewGate{
+        margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: auto;
+	background-color:#bbbbbb;
+	width:550px; 
+	height:200px;
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid red;
+	border-radius:6px;
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:18px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;
+ }
+#formGateList{
+        margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: 20px;
+        padding-right: 20px;
+	background-color:#bbbbbb;
+	width:800px; 
+	height:620px;
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid red;
+	border-radius:6px;
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:18px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;
+        overflow: scroll;
+ }
+#formDelGate{
+        margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: 20px;
+        padding-right: 20px;
+	background-color:#bbbbbb;
+	width:920px; 
+	height:200px;
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid red;
+	border-radius:6px;
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:18px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;
+ }
+ #formNewRfid{
+        margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: auto;
+	background-color:#bbbbbb;
+	width:550px; 
+	height:200px;
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid red;
+	border-radius:6px;
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:18px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;
+ }
+#formRfidList{
+        margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: 20px;
+        padding-right: 20px;
+	background-color:#bbbbbb;
+	width:650px; 
+	height:420px;
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid red;
+	border-radius:6px;
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:18px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;
+        overflow-y: scroll;
+ }
+#formDelRfid{
+        margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: 20px;
+        padding-right: 20px;
+	background-color:#bbbbbb;
+	width:920px; 
+	height:200px;
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid red;
+	border-radius:6px;
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:18px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;
+ }
+#formModRfid{
+        margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: auto;
+	background-color:#bbbbbb;
+	width:860px; 
+	height:430px;
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid red;
+	border-radius:6px;
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:18px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;
+ }
+#formModGate{
+        margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: auto;
+	background-color:#bbbbbb;
+	width:860px; 
+	height:430px;
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid red;
+	border-radius:6px;
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:18px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;
+ }
+#SelfData{
+        margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: 20px;
+        padding-right: 20px;
+	background-color:#bbbbbb;
+	width:800px; 
+	height:550px;
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid red;
+	border-radius:6px;
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:18px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;      
+ }
+ #WorkLog{
+        margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: 20px;
+        padding-right: 20px;
+	background-color:white;
+	width:800px; 
+	height:1050px;
+	box-shadow: 10px 10px 5px #444444;
+	border:3px solid darkblue;	
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:18px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;      
+ }
+ #balMG{
+     margin-left: 5px;
+     margin-top: 5px;
+     width:370px;
+     height: 400px;
+     float: left;
+     position: relative;
+ }
+  #jobbMG{
+     margin-left: 5px;
+     margin-top: 5px;
+     width:460px;
+     height: 400px;
+     position: relative;
+     float: left;
+ }
+ #gateCheck{
+     margin-left: 5px;
+     margin-top: 5px;
+     width:240px;
+     height: 320px;
+     position: relative;
+     float: left;
+     overflow-y: scroll;
+     background-color: lightgreen;
+     border:2px solid darkgreen;
+ }
+ #gateButton{
+     text-align: center;
+     margin-left: 5px;
+     margin-top: 5px;
+     width:200px;
+     height: 320px;
+     position: relative;
+     float: left;
+ }
+ #formLogonLog{
+        margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: 20px;
+        padding-right: 20px;
+	background-color:#bbbbbb;
+	width:800px; 
+	height:420px;
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid red;
+	border-radius:6px;
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:18px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;
+        overflow-y: scroll;
+ }
+#formListLog{
+        margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: 20px;
+        padding-right: 20px;
+	background-color:#bbbbbb;
+	width:1000px; 
+	height:420px;
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid red;
+	border-radius:6px;
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:18px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;
+        overflow-y: scroll;
+ }
+#formWorkDate{
+        margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: 20px;
+        padding-right: 20px;
+	background-color:#bbbbbb;
+	width:1000px; 
+	height:520px;
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid red;
+	border-radius:6px;
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:18px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;
+        overflow-y: scroll;
+ }
+#formNewPass{
+        margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: auto;
+	background-color:#bbbbbb;
+	width:600px; 
+	height:280px;
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid red;
+	border-radius:6px;
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:18px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;
+ }
+ #formModVisit{
+        margin: 0 auto 0 auto;
+	margin-top:5px;
+	padding-top:20px;
+        padding-left: auto;
+	background-color:#bbbbbb;
+	width:1000px; 
+	height:430px;
+	box-shadow: 10px 10px 5px #444444;
+	border:5px solid red;
+	border-radius:6px;
+	text-align: left;
+	padding-top: 10px;
+        font-family:Verdana;
+	font-size:18px;
+	text-decoration:none;
+        text-shadow:2px 2px #8888bb;
+ }
+ 
+.textbox { 
+    background: cyan; 
+    border: 1px double #DDD; 
+    box-shadow: 0 0 5px #333; 
+    color: #666; 
+    outline: none; 
+    height:25px; 
+    width: 275px;
+    font-size: 14px;
+    font-family:Verdana;
+    color:black;
+    padding-left:5px;
+} 
+.datebox { 
+    background: cyan; 
+    border: 1px double #DDD; 
+    border-radius: 5px; 
+    box-shadow: 0 0 5px #333; 
+    color: #666; 
+    outline: none; 
+    height:35px; 
+    width: 150px;
+    font-size: 18px;
+    font-family:Verdana;
+    color:black;
+    padding-left:5px;
+    text-align: center;
+} 
+.tableform{
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+}
+.selftable{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding-top: 20px;
+    font-size: 18px;
+    text-shadow: none;
+    border-width: 1px;
+    border-color: lightgrey;
+    border-style: solid;
+    border-collapse: collapse;
+}
+.selftable tr{
+    border-width: 1px;
+    border-color: lightgrey;
+    border-style: solid;
+    border-collapse: collapse;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    
+}
+.selftable td{
+    border-width: 1px;
+    border-color: lightgrey;
+    border-style: solid;
+    border-collapse: collapse;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.tablelist{
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    font-size: 14px;
+    text-shadow: none;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    border-collapse: collapse;
+}
+.tablelist th{
+    background-color: graytext;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    border-collapse: collapse;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.tablelist tr{
+    background-color: cyan;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    border-collapse: collapse;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.tablelist td{
+    background-color: cyan;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    border-collapse: collapse;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.tdgaterfid{
+    padding-top: 10px;
+    text-align: center
+}
+.gombForm {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: normal;
+    text-decoration: inherit;
+    
+    border: 1px solid #3866A3;
+    padding: 5px 18px;
+    text-shadow: 1px 1px 0px #5E5E5E;
+    -webkit-box-shadow: inset 1px 1px 0px 0px #BEE2F9;
+    -moz-box-shadow: inset 1px 1px 0px 0px #BEE2F9;
+    box-shadow: inset 1px 1px 0px 0px #BEE2F9;
+    cursor: pointer;
+    color: #FFFFFF;
+    display: inline-block;
+    background: -webkit-linear-gradient(90deg, #468ccf 5%, #63b8ee 100%);
+    background: -moz-linear-gradient(90deg, #468ccf 5%, #63b8ee 100%);
+    background: -ms-linear-gradient(90deg, #468ccf 5%, #63b8ee 100%);
+    background: linear-gradient(180deg, #63b8ee 5%, #468ccf 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#63b8ee",endColorstr="#468ccf");
+}
+
+.gombForm:hover {
+    background: -webkit-linear-gradient(90deg, #63b8ee 5%, #468ccf 100%);
+    background: -moz-linear-gradient(90deg, #63b8ee 5%, #468ccf 100%);
+    background: -ms-linear-gradient(90deg, #63b8ee 5%, #468ccf 100%);
+    background: linear-gradient(180deg, #468ccf 5%, #63b8ee 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#468ccf",endColorstr="#63b8ee");
+}
+
+.gombForm:active {
+    position:relative;
+    top: 1px;
+}
+.selectcss{
+    font-size: 16px;
+    border: 2px solid darkblue;
+    line-height: 1;
+    overflow: scroll;
+    width: 500px;
+}
+.selectcss2{
+    font-size: 16px;
+    border: 2px solid darkblue;
+    line-height: 1;
+    overflow: scroll;
+    width: 450px;
+}
+.selectusers{
+    font-size: 16px;
+    border: 2px solid darkblue;
+    line-height: 1;
+    overflow: scroll;
+    width: 450px;
+}
+.csopListPrint{
+    font-family:Verdana;
+    font-size:18px;
+    text-decoration:none;
+    text-shadow: none;
+    text-align: center;
+    height: 460px;
+}
+.jelenletifejlec{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding-top: 20px;
+    font-size: 16px;
+    text-shadow: none;
+    border-width: 1px;
+    border-color: lightgrey;
+    border-style: solid;
+    border-collapse: collapse;
+}
+.jelenletifejlec tr{
+    border-width: 1px;
+    border-color: lightgrey;
+    border-style: solid;
+    border-collapse: collapse;
+    text-align: left;
+    padding-left: 5px;
+    padding-right: 5px;
+    
+}
+.jelenletifejlec th{
+    border-width: 1px;
+    border-color: lightgrey;
+    border-style: solid;
+    border-collapse: collapse;
+    text-align: left;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: normal;
+    
+}
+.jelenletifejlec td{
+    border-width: 1px;
+    border-color: lightgrey;
+    border-style: solid;
+    border-collapse: collapse;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+.jelenleti{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding-top: 20px;
+    font-size: 13px;
+    text-shadow: none;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    border-collapse: collapse;
+}
+.jelenleti tr{
+    border-width: 1px;
+    border-color: grey;
+    border-style: solid;
+    border-collapse: collapse;
+    text-align: left;
+    padding-left: 5px;
+    padding-right: 5px;
+    
+}
+.jelenleti th{
+    border-width: 1px;
+    border-color: grey;
+    border-style: solid;
+    border-collapse: collapse;
+    text-align: left;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: bold;
+    font-size: 14px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background-color: lightgrey;
+    
+}
+.jelenleti td{
+    border-width: 1px;
+    border-color: grey;
+    border-style: solid;
+    border-collapse: collapse;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}

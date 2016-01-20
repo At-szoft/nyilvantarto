@@ -1,0 +1,19 @@
+<form>
+<select name="one" onchange="if (this.value=='other')   {this.form['other'].style.visibility='visible'}else     {this.form['other'].style.visibility='hidden'};">
+<option value="" selected="selected">Select...</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="other">Other</option>
+</select>
+<input type="textbox" name="other" style="visibility:hidden;"/>
+<br>
+<select name="two" onchange="if (this.value=='other')   {this.form['other2'].style.visibility='visible'}else     {this.form['other2'].style.visibility='hidden'};">
+<option value="" selected="selected">Select...</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="other">Other</option>
+</select>
+<input type="textbox" name="other2" style="visibility:hidden;"/>
+</form>
