@@ -209,7 +209,60 @@
 					mysqli_query($con,$sql);
 					$sql = "INSERT INTO elhelyezes (azon,hely,jelleg)
 						VALUES (1,'Nincs helyhez kötve!','-')";
-					mysqli_query($con,$sql);					
+					mysqli_query($con,$sql);
+					$sql = "CREATE VIEW tview1 as SELECT tart.azon, tart.megnevezes, 
+					tart.nytsz, tart.erteke, tart.mennyisege, jell.megnevezes AS jellege, 
+					tart.gyszam, tart.eszkoz, tart.allapota, tart.megjegyzes
+					FROM tartozekok AS tart INNER JOIN jellegek AS jell ON tart.azon = jell.azon";
+					mysqli_query($con,$sql);
+					$sql = "CREATE VIEW tview2 as SELECT sel1.azon, sel1.megnevezes, 
+					sel1.nytsz, sel1.erteke, sel1.mennyisege, sel1.jellege, sel1.gyszam, 
+					sel1.eszkoz, alla.statusz AS allapota, sel1.megjegyzes FROM tview1 AS sel1
+					INNER JOIN allapot AS alla ON sel1.allapota = alla.azon";
+					mysqli_query($con,$sql);
+					$sql = "CREATE VIEW eview as select es.azon,es.megnevezes,
+					es.gyartmany,es.tipus,faj.megnevezes as fajta from 
+					eszkozok as es inner join fajtak as faj on es.fajta=faj.megnevezes";
+					mysqli_query($con,$sql);
+					$sql = "CREATE VIEW nyview1 as select nyt.azon,nyt.eszkoz,nyt.darab,
+					nyt.beszerzes,nyt.ertek,nyt.uzembehelyezve,nyt.nytsz,nyt.enytsz,
+					nyt.elhelyezese,nyt.felhasznalok,nyt.gyszam,alla.statusz as allapot,
+					nyt.megjegyzes from nyilvantartas as nyt inner join allapot as alla on nyt.allapot=alla.azon";					
+                    mysqli_query($con,$sql);
+                    $sql = "CREATE VIEW nyview2 as select nyt.azon,nyt.eszkoz,nyt.darab,
+                    nyt.beszerzes,nyt.ertek,nyt.uzembehelyezve,nyt.nytsz,nyt.enytsz,
+                    nyt.elhelyezese,felh.nev as felhasznalonev,felh.jelleg as felhasznalojelleg,
+                    nyt.gyszam,nyt.allapot,nyt.megjegyzes from nyview1 as nyt
+                    inner join felhasznalok as felh on nyt.felhasznalok=felh.azon";
+                    mysqli_query($con,$sql);
+                    $sql = "CREATE VIEW nyview3 as select nyt.azon,nyt.eszkoz,nyt.darab,
+                    nyt.beszerzes,nyt.ertek,nyt.uzembehelyezve,nyt.nytsz,nyt.enytsz,
+                    elh.hely as helye,elh.jelleg as helyjellege,nyt.felhasznalonev,
+                    nyt.felhasznalojelleg,nyt.gyszam,nyt.allapot,nyt.megjegyzes from nyview2 as nyt 
+                    inner join elhelyezes as elh on nyt.elhelyezese=elh.azon";
+                    mysqli_query($con,$sql);
+					$sql = "CREATE VIEW nyview4 as select nyt.azon,nyt.eszkoz,
+					nyt.darab,besz.jelleg as beszjelleg, besz.megnevezes as besznev,
+					besz.ev as beszeve,nyt.ertek,nyt.uzembehelyezve,nyt.nytsz,nyt.enytsz,
+					nyt.helye,nyt.helyjellege,nyt.felhasznalonev,nyt.felhasznalojelleg,
+					nyt.gyszam,nyt.allapot,nyt.megjegyzes from nyview3 as nyt 
+					inner join beszerzes as besz on nyt.beszerzes=besz.azon";
+					mysqli_query($con,$sql);
+					$sql = "CREATE VIEW nyview5 as select nyt.azon,ev.megnevezes,
+					ev.gyartmany,ev.tipus,ev.fajta,nyt.darab,nyt.beszjelleg, nyt.besznev,
+					nyt.beszeve,nyt.ertek,nyt.uzembehelyezve,nyt.nytsz,nyt.enytsz,nyt.helye,
+					nyt.helyjellege,nyt.felhasznalonev,nyt.felhasznalojelleg,nyt.gyszam,
+					nyt.allapot,nyt.megjegyzes from nyview4 as nyt inner join eview as ev on nyt.eszkoz=ev.azon";
+					mysqli_query($con,$sql);
+					$sql = "CREATE VIEW nytviewall as select nyt.azon,nyt.megnevezes,nyt.gyartmany,
+					nyt.tipus,nyt.fajta,nyt.darab,nyt.beszjelleg, nyt.besznev,nyt.beszeve,nyt.ertek,
+					nyt.uzembehelyezve,nyt.nytsz,nyt.enytsz,nyt.helye,nyt.helyjellege,nyt.felhasznalonev,
+					nyt.felhasznalojelleg,nyt.gyszam,nyt.allapot,nyt.megjegyzes,
+					tv.megnevezes as tartozeknev,tv.nytsz as tartnytsz, tv.erteke as tartertek,
+					tv.mennyisege as tartdb, tv.jellege as tartjellege, tv.gyszam as tartgyszam,
+					tv.allapota as tartallapot, tv.megjegyzes as tartmegjegyzes 
+					from nyview5 as nyt left outer join tview2 as tv on nyt.azon=tv.eszkoz";
+					mysqli_query($con,$sql);
                     mysqli_close($con);
                     echo "<script type='text/javascript'>alert('Az adatbázis elkészült !');</script>";                      
                  }
