@@ -94,7 +94,8 @@
 								<input type="radio" name="listtype" value="ver">Listás elrendezés
 			        		</td>
 							<td align="left">
-							<select name="order" multiple="multiple" >		
+							<select name="order" multiple="multiple">
+									<option value="0" selected>Válaszd ki a rendezési alapot!</option>	
 	        						<option value="1">Nyilvántartási szám</option>
 							       	<option value="2">Eszköz név</option>
 							       	<option value="3">Eszköz gyártmány</option>
@@ -192,6 +193,7 @@
 				if (isset($_POST['varchange']))	{
 						$adat=$_POST['varchange'];
 						$order=$_POST['order'];
+						$type=$_POST['listtype'];
 						if ($adat!=""){
 						$elem = explode(",", $adat);
 						$elemszam=sizeof($elem);
@@ -200,36 +202,44 @@
 											"ESZKÖZ ÉRTÉKE","ÜZEMBEHELYEZÉS ÉVE","ELŐZŐ NYTSZ","GYÁRI SZÁMA","ÁLLAPOTA",
 											"TARTOZÉKOK NEVE","TARTOZÉKOK NYTSZ-e","TARTOZÉKOK ÉRTÉKE","TARTOZÉKOK SZÁMA",
 											"TARTOZÉKOK JELLEGE","TARTOZÉKOK GYÁRISZ -a","TARTOZÉKOK ÁLLAPOTA","ESZKÖZ MEGJEGYZÉS","TARTOZÉKOK MEGJEGYZÉS");
-						echo '<div id="formItemList">';
-						echo '<table class="tablelist">';
-						echo '<tr>';
-							$i=0;
-		                	for ($i=0;$i<$elemszam;$i++){
-								echo'<th>'.$felirat[$elem[$i]].'</th>';
-							}							
-		                echo '</tr>';
-						
-						include "connection.php";
-						ConDb();
-						$sql=mysql_query("select sel2.nytsz,sel2.megnevezes,sel2.gyartmany,sel2.tipus,sel2.fajta,el.hely,sel2.statusz 
-						from (select sel1.nytsz,sel1.megnevezes,sel1.gyartmany,sel1.tipus,sel1.fajta,sel1.elhelyezese,al.statusz 
-						from (SELECT nytsz,megnevezes,gyartmany,tipus,fajta,allapot,elhelyezese 
-						FROM nyilvantartas as nyt inner join eszkozok as esz on nyt.eszkoz=esz.azon)as sel1 inner join allapot as al on sel1.allapot=al.azon)as sel2 inner join elhelyezes as el on sel2.elhelyezese=el.azon");
-						while($sor=mysql_fetch_array($sql)){
-		                    echo "<tr>";
-		                    	echo "<td>" . $sor['nytsz'] . "</td>";
-		                    	echo "<td>" . $sor['megnevezes'] . "</td>";
-		                    	echo "<td>" . $sor['gyartmany'] . "</td>";
-		                    	echo "<td>" . $sor['tipus'] . "</td>";
-								echo "<td>" . $sor['fajta'] . "</td>";
-								echo "<td>" . $sor['hely'] . "</td>";
-		                    	echo "<td>" . $sor['statusz'] . "</td>";
-							echo "</tr>";                  
-		                }
-						ClsConDb();
-						
-						echo '</table>';						
-					echo '</div>';
+						$selarray=array("-","nytsz","megnevezes","gyartmany","tipus","fajta","darab",
+											"beszjelleg","besznev","beszeve","helye",
+											"ertek","uzembehelyezve","enytsz","gyszam","allapot",
+											"tartozeknev","tartnytsz","tartertek","tartdb",
+											"tartjellege","tartgyszam","tartallapot","megjegyzes","tartmegjegyzes");
+						$select="azon";
+						if ($elemszam>6){
+							$type='ver';
+							echo "<script type='text/javascript' charset='UTF-8'>alert('Több mint 6 kiválasztott jellemző! Csak listás elrendezés lehetséges!');</script>";
+						}
+						if ($type=='hor'){
+							echo '<div id="formItemList">';
+							echo '<table class="tablelist">';
+							echo '<tr>';
+								$i=0;
+			                	for ($i=0;$i<$elemszam;$i++){
+									echo'<th>'.$felirat[$elem[$i]].'</th>';
+									$select=$select.','.$selarray[$elem[$i]];			
+								}							
+			                echo '</tr>';
+							include "connection.php";
+							ConDb();
+							$tempazon="0"; //itt járok. A tartozékok minden tuljadonságát utoljára kell tenni, és így tudom nézni az indexét. Ha kissebb az index, nem íratom ki
+							$sql=mysql_query("select $select from nytviewall");
+							while($sor=mysql_fetch_array($sql)){
+			                    echo "<tr>";
+				                    $i=0;
+				                	for ($i=0;$i<$elemszam;$i++){
+										echo'<td>'.$sor[$selarray[$elem[$i]]].'</td>';
+									}				                    	
+								echo "</tr>";                  
+			                }
+							ClsConDb();
+							
+							echo '</table>';						
+						echo '</div>';
+					}
+					
 					echo '<table class="tableform"><tr>';
 					echo '<td><button class="gombForm" onclick="printContent(\'formItemList\',\'ESZKÖZ LISTA\')">NYOMTAT</button></td>';
 					echo '</tr></table>';
