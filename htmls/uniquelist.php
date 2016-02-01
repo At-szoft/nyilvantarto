@@ -111,14 +111,14 @@
 									<option value="13">Előző nyilvántartási száma</option>
 									<option value="14">Gyári száma</option>
 							        <option value="15">Állapota</option>
-									<option value="16">Tartozék megnevezése</option>
-									<option value="17">Tartozék nyilvántartási száma</option>
-									<option value="18">Tartozék értéke</option>
-									<option value="19">Tartozék száma</option>
-									<option value="20">Tartozék jellege</option>
-									<option value="21">Tartozék gyáriszáma</option>
-									<option value="22">Tartozék állapota</option>
-									<option value="23">Eszköz megjegyzés</option>
+							        <option value="16">Eszköz megjegyzés</option>
+									<option value="17">Tartozék megnevezése</option>
+									<option value="18">Tartozék nyilvántartási száma</option>
+									<option value="19">Tartozék értéke</option>
+									<option value="20">Tartozék száma</option>
+									<option value="21">Tartozék jellege</option>
+									<option value="22">Tartozék gyáriszáma</option>
+									<option value="23">Tartozék állapota</option>
 									<option value="24">Tartozék megjegyzés</option>
 							    </select>
 								<script src="../js/multiple-select.js"></script> 
@@ -148,14 +148,14 @@
 									<option value="13">Előző nyilvántartási száma</option>
 									<option value="14">Gyári száma</option>
 							        <option value="15">Állapota</option>
-									<option value="16">Tartozék megnevezése</option>
-									<option value="17">Tartozék nyilvántartási száma</option>
-									<option value="18">Tartozék értéke</option>
-									<option value="19">Tartozék száma</option>
-									<option value="20">Tartozék jellege</option>
-									<option value="21">Tartozék gyáriszáma</option>
-									<option value="22">Tartozék állapota</option>
-									<option value="23">Eszköz megjegyzés</option>
+							        <option value="16">Eszköz megjegyzés</option>
+									<option value="17">Tartozék megnevezése</option>
+									<option value="18">Tartozék nyilvántartási száma</option>
+									<option value="19">Tartozék értéke</option>
+									<option value="20">Tartozék száma</option>
+									<option value="21">Tartozék jellege</option>
+									<option value="22">Tartozék gyáriszáma</option>
+									<option value="23">Tartozék állapota</option>
 									<option value="24">Tartozék megjegyzés</option>
 							    </select>
 							    <script src="../js/multiple-select.js"></script> 
@@ -193,22 +193,26 @@
 				if (isset($_POST['varchange']))	{
 						$adat=$_POST['varchange'];
 						$order=$_POST['order'];
+						if ($order==0)$order=1;
+						
 						$type=$_POST['listtype'];
 						if ($adat!=""){
 						$elem = explode(",", $adat);
 						$elemszam=sizeof($elem);
 						$felirat=array("-","NYT.SZÁMA","ESZKÖZ NEVE","GYÁRTMÁNYA","TÍPUSA","BESOROLÁSA","MENNYISÉGE",
 											"BESZERZÉS JELLEGE","BESZERZÉS NEVE","BESZERZÉS ÉVE","ÜZEMELTETÉS HELYE",
-											"ESZKÖZ ÉRTÉKE","ÜZEMBEHELYEZÉS ÉVE","ELŐZŐ NYTSZ","GYÁRI SZÁMA","ÁLLAPOTA",
+											"ESZKÖZ ÉRTÉKE","ÜZEMBEHELYEZÉS ÉVE","ELŐZŐ NYTSZ","GYÁRI SZÁMA","ÁLLAPOTA","ESZKÖZ MEGJEGYZÉS",
 											"TARTOZÉKOK NEVE","TARTOZÉKOK NYTSZ-e","TARTOZÉKOK ÉRTÉKE","TARTOZÉKOK SZÁMA",
-											"TARTOZÉKOK JELLEGE","TARTOZÉKOK GYÁRISZ -a","TARTOZÉKOK ÁLLAPOTA","ESZKÖZ MEGJEGYZÉS","TARTOZÉKOK MEGJEGYZÉS");
+											"TARTOZÉKOK JELLEGE","TARTOZÉKOK GYÁRISZ -a","TARTOZÉKOK ÁLLAPOTA","TARTOZÉKOK MEGJEGYZÉS");
 						$selarray=array("-","nytsz","megnevezes","gyartmany","tipus","fajta","darab",
 											"beszjelleg","besznev","beszeve","helye",
-											"ertek","uzembehelyezve","enytsz","gyszam","allapot",
+											"ertek","uzembehelyezve","enytsz","gyszam","allapot","megjegyzes",
 											"tartozeknev","tartnytsz","tartertek","tartdb",
-											"tartjellege","tartgyszam","tartallapot","megjegyzes","tartmegjegyzes");
+											"tartjellege","tartgyszam","tartallapot","tartmegjegyzes");
 						$select="azon";
-						if ($elemszam>6){
+						include "connection.php";
+						ConDb();
+						if (($elemszam>6)&&($type!="ver")){
 							$type='ver';
 							echo "<script type='text/javascript' charset='UTF-8'>alert('Több mint 6 kiválasztott jellemző! Csak listás elrendezés lehetséges!');</script>";
 						}
@@ -222,24 +226,97 @@
 									$select=$select.','.$selarray[$elem[$i]];			
 								}							
 			                echo '</tr>';
-							include "connection.php";
-							ConDb();
-							$tempazon="0"; //itt járok. A tartozékok minden tuljadonságát utoljára kell tenni, és így tudom nézni az indexét. Ha kissebb az index, nem íratom ki
-							$sql=mysql_query("select $select from nytviewall");
-							while($sor=mysql_fetch_array($sql)){
-			                    echo "<tr>";
-				                    $i=0;
-				                	for ($i=0;$i<$elemszam;$i++){
-										echo'<td>'.$sor[$selarray[$elem[$i]]].'</td>';
-									}				                    	
-								echo "</tr>";                  
-			                }
-							ClsConDb();
 							
+							$tempazon="0"; 
+							$elembeir="";
+							$sql=mysql_query("select $select from nytviewall order by $selarray[$order]");
+							while($sor=mysql_fetch_array($sql)){
+			                    if ($tempazon!=$sor['azon']){	
+				                    echo "<tr>";
+					                    $i=0;
+					                	for ($i=0;$i<$elemszam;$i++){
+					                		$elembeir=$sor[$selarray[$elem[$i]]];
+											if ($elembeir=="")$elembeir="&nbsp";
+											echo'<td style="border-top: 3px solid #000000";>'.$elembeir.'</td>';
+										}				                    	
+									echo "</tr>";
+									$tempazon=$sor['azon'];
+								}else{
+									if ($elem[$elemszam-1]>16){
+										echo "<tr>";
+						                    $i=0;
+						                	for ($i=0;$i<$elemszam;$i++){
+						                		if ($elem[$i]>16){	
+						                			$elembeir=$sor[$selarray[$elem[$i]]];
+												}else{
+													$elembeir="";
+												}
+												if ($elembeir=="")$elembeir="&nbsp";
+												echo'<td style="border-top: 1px solid #000000";>'.$elembeir.'</td>';
+											}				                    	
+										echo "</tr>";
+									}
+								}                  
+			                }	
 							echo '</table>';						
-						echo '</div>';
-					}
+							echo '</div>';
+						}
 					
+						if ($type=='ver'){
+							echo '<div id="formItemList">';
+							echo '<table class="tablelist">';
+							$i=0;
+							$select=$select.",nytsz";
+			                for ($i=0;$i<$elemszam;$i++){
+								$select=$select.','.$selarray[$elem[$i]];			
+							}										
+							$tempazon="0"; 
+							$elembeir="";
+							$sql=mysql_query("select $select from nytviewall order by $selarray[$order]");
+							while($sor=mysql_fetch_array($sql)){ 
+			                    if ($tempazon!=$sor['azon']){
+			                    	if ($tempazon!=0)echo '<tr><td colspan="3" style="background-color:#ffffff;">&nbsp</td></tr>'; 	
+				                    
+				                    echo '<tr>';
+									$elembeir=$sor['nytsz'];
+									echo'<th style="text-align: left; border-top: 3px solid #000000"; colspan="3">NYTSZ: '.$elembeir.'</th>';
+									echo "</tr>";
+					                    $i=0;
+					                	for ($i=0;$i<$elemszam;$i++){
+					                		if ($elem[$i]<17){
+						                		$elembeir=$sor[$selarray[$elem[$i]]];
+												if ($elembeir=="")$elembeir="&nbsp";
+												if (($i==0)||($i==3)||($i==6)||($i==9)||($i==12)||($i==15)||($i==18)||($i==21)) echo "<tr>";
+												echo'<td style="text-align:left;">'.$felirat[$elem[$i]].':&nbsp<b>'.$elembeir.'</b></td>';
+												if (($i==2)||($i==5)||($i==8)||($i==11)||($i==14)||($i==17)||($i==20)||($i==23)) echo "</tr>";
+											}
+										}				                    	
+										if (($i!=2)||($i!=5)||($i!=8)||($i!=11)||($i!=14)||($i!=17)||($i!=20)||($i!=23)) echo "</tr>";
+									$tempazon=$sor['azon'];
+								}
+								if ($elem[$elemszam-1]>16){
+									echo '<tr>';
+									echo'<td style="text-align: center; border-top: 2px solid #000000" colspan="3">Tartozék:</td>';
+									echo'</tr>';
+									$i=0;
+					                for ($i=0;$i<$elemszam;$i++){
+					                	if ($elem[$i]>16){
+						                	$elembeir=$sor[$selarray[$elem[$i]]];
+											if ($elembeir=="")$elembeir="&nbsp";
+											if (($i==0)||($i==3)||($i==6)||($i==9)||($i==12)||($i==15)||($i==18)||($i==21)) echo "<tr>";
+											echo'<td style="text-align:left;">'.$felirat[$elem[$i]].':&nbsp<b>'.$elembeir.'</b></td>';
+											if (($i==2)||($i==5)||($i==8)||($i==11)||($i==14)||($i==17)||($i==20)||($i==23)) echo "</tr>";
+										}
+									}				                    	
+									if (($i!=2)||($i!=5)||($i!=8)||($i!=11)||($i!=14)||($i!=17)||($i!=20)||($i!=23)) echo "</tr>";
+								}
+								
+								                
+			                }	
+							echo '</table>';						
+							echo '</div>';
+						}
+					ClsConDb();	
 					echo '<table class="tableform"><tr>';
 					echo '<td><button class="gombForm" onclick="printContent(\'formItemList\',\'ESZKÖZ LISTA\')">NYOMTAT</button></td>';
 					echo '</tr></table>';
